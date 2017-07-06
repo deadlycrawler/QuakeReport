@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 public class EarthquakeActivity extends AppCompatActivity {
 
+    private static final String USGS_REQUEST_URL = "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
+
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
 
     @Override
@@ -26,16 +28,19 @@ public class EarthquakeActivity extends AppCompatActivity {
         setContentView(R.layout.earthquake_activity);
 
         // Create a fake list of earthquake locations.
-        //public Earthquake(double magnatude, String location, String date)
+        //public Earthquake(double magnitude, String location, String date)
 
-        //added final here for some reason, may need to rework
+
         final ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
 
 
         // Find a reference to the {@link ListView} in the layout
-        EarthquakeAdapter adapter = new EarthquakeAdapter(this,earthquakes);
+        EarthquakeAdapter adapter = new EarthquakeAdapter(this, earthquakes);
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
         earthquakeListView.setAdapter(adapter);
+
+
+
 
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,24 +55,5 @@ public class EarthquakeActivity extends AppCompatActivity {
 
             }
         });
-
-
-        //JSON test
-//        String candyJson = "{\"candies\":{[\"name\":\"Jelly Beans\",\"count\":10}]}";
-//
-//        try {
-//            JSONObject root = new JSONObject(candyJson);
-//
-//            JSONArray candiesArray = root.getJSONArray("candies");
-//
-//            JSONObject firstCandy = candiesArray.getJSONObject(0);
-//
-//            String name = firstCandy.getString("name");
-//            int count= firstCandy.getInt("count");
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
-
     }
 }
