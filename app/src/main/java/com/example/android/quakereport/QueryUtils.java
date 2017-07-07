@@ -4,6 +4,7 @@ package com.example.android.quakereport;
 import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -142,6 +143,7 @@ public final class QueryUtils {
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
         } finally {
+
             if (urlConnection != null) {
                 urlConnection.disconnect();
             }
