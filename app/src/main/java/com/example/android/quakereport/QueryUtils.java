@@ -126,6 +126,8 @@ public final class QueryUtils {
         InputStream inputStream = null;
 
         try {
+            //sleep used to trouble shoot loading screen
+           // Thread.sleep(2000);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
@@ -142,6 +144,9 @@ public final class QueryUtils {
             }
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            //sleep used to trouble shoot loading screen, catch is to catch
+//        } catch (InterruptedException e) {
+//            Log.e(LOG_TAG,"Thread not sleeping",e);
         } finally {
 
             if (urlConnection != null) {
