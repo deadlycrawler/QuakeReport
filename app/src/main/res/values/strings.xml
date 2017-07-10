@@ -5,12 +5,17 @@
     <string name="no_earthquakes">no Data available</string>
 
 
-    <string name ="settings_menu_item">Settings</string>
+    <string name="settings_menu_item">Settings</string>
     <string name="settings_title">Earthquake Settings</string>
 
     <string name="settings_min_magnitude_label">Minimum Magnitude</string>
     <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
     <string name="settings_min_magnitude_default" translatable="false">6</string>
+
+
+    <string name="settings_min_earthquake_label">Quantity Limit</string>
+    <string name="settings_min_earthquake_key" translatable="false">limit</string>
+    <string name="settings_min_earthquake_default" translatable="false">10</string>
 
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
     <string name="settings_order_by_label">Order By</string>

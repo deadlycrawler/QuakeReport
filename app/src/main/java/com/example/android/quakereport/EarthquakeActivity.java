@@ -24,6 +24,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: modify the settings to add a quanity of earthquakes option
+
 public class EarthquakeActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Earthquake>> {
 
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
@@ -88,6 +90,11 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
                 getString(R.string.settings_min_magnitude_key),
                 getString(R.string.settings_min_magnitude_default));
 
+        String limit = sharedPrefs.getString(
+                getString(R.string.settings_min_earthquake_key),
+                getString(R.string.settings_min_earthquake_default));
+
+
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default)
@@ -100,7 +107,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         uriBuilder.appendQueryParameter("eventtype", "earthquake");
         uriBuilder.appendQueryParameter("orderby", orderBy);
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        uriBuilder.appendQueryParameter("limit", "10");
+        uriBuilder.appendQueryParameter("limit", limit);
 
         return new EarthquakeLoader(this, uriBuilder.toString());
     }

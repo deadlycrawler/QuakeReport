@@ -17,6 +17,9 @@ public class EarthquakePreferenceFragment extends PreferenceFragment implements 
         Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
         bindPreferenceSummaryToValue(minMagnitude);
 
+        Preference earthquakeQuantity = findPreference(getString(R.string.settings_min_earthquake_key));
+        bindPreferenceSummaryToValue(earthquakeQuantity);
+
         Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
         bindPreferenceSummaryToValue(orderBy);
     }
